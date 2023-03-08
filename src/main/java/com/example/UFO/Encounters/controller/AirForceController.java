@@ -2,13 +2,10 @@ package com.example.UFO.Encounters.controller;
 
 
 import com.example.UFO.Encounters.model.entities.AirForce;
-import com.example.UFO.Encounters.repository.AirForceRepository;
 import com.example.UFO.Encounters.service.AirForceService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/airForce")
@@ -42,12 +39,10 @@ public class AirForceController {
         return airForceService.getAll();
     }
 
-
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateAirForce(@PathVariable Long id, @RequestBody AirForce updatedAirForce) {
-       airForceService.updateAirForce(id, updatedAirForce);
-
+    public AirForce updateAirForce(@PathVariable Long id, @RequestBody AirForce updatedAirForce) {
+        return airForceService.updateAirForce(id, updatedAirForce);
     }
 
 
