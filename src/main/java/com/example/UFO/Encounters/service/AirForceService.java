@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-
 public class AirForceService {
-
     private final AirForceRepository airForceRepository;
 
     public AirForce create(AirForce airForce) {
@@ -29,7 +27,7 @@ public class AirForceService {
         return airForceRepository.findAll();
     }
 
-    public void updateAirForce(Long id, AirForce updatedAirForce) {
+    public AirForce updateAirForce(Long id, AirForce updatedAirForce) {
         AirForce existingAirForce = get(id);
 
         existingAirForce.setAirForceName(updatedAirForce.getAirForceName());
@@ -38,9 +36,6 @@ public class AirForceService {
         existingAirForce.setOrders(updatedAirForce.getOrders());
         existingAirForce.setEncounterDescription(updatedAirForce.getEncounterDescription());
 
-        airForceRepository.save(existingAirForce);
-
+        return airForceRepository.save(existingAirForce);
     }
-
-
 }

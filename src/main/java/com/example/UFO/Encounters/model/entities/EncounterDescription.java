@@ -3,7 +3,7 @@ package com.example.UFO.Encounters.model.entities;
 import com.example.UFO.Encounters.model.DescriptionStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import java.util.Locale;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 
 public class EncounterDescription {
     @Id

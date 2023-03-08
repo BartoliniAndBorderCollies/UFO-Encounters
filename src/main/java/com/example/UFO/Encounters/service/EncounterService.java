@@ -21,7 +21,7 @@ public class EncounterService {
     }
 
     public EncounterDescription get(Long id) {
-        return encounterRepository.findEncounterDescriptionById(id).orElseThrow(() -> new ObjectNotFoundException(id, "encounter description"));
+        return encounterRepository.findEncounterDescriptionById(id).orElseThrow(() -> new ObjectNotFoundException(id, "EncounterDescription"));
     }
 
     public Iterable<EncounterDescription> getAll() {

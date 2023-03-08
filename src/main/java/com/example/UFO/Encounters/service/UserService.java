@@ -4,16 +4,7 @@ import com.example.UFO.Encounters.model.entities.User;
 import com.example.UFO.Encounters.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.server.ResponseStatusException;
-
-import javax.swing.text.html.Option;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -38,7 +29,6 @@ public class UserService {
     }
 
     public void updateUser(Long id, User updatedUser) {
-
         User existingUser = get(id);
 
         existingUser.setAccountName(updatedUser.getAccountName());
@@ -49,7 +39,4 @@ public class UserService {
 
         userRepository.save(existingUser);
     }
-
-
-
 }

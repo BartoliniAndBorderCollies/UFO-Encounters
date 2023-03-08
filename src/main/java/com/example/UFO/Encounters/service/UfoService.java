@@ -1,7 +1,6 @@
 package com.example.UFO.Encounters.service;
 
 import com.example.UFO.Encounters.model.entities.Ufo;
-import com.example.UFO.Encounters.model.entities.User;
 import com.example.UFO.Encounters.repository.UfoRepository;
 import lombok.AllArgsConstructor;
 import org.hibernate.ObjectNotFoundException;
@@ -23,7 +22,7 @@ public class UfoService {
     }
 
     public Ufo get(Long id) {
-        return ufoRepository.findUfoById(id).orElseThrow(() -> new ObjectNotFoundException(id, "user"));
+        return ufoRepository.findUfoById(id).orElseThrow(() -> new ObjectNotFoundException(id, "Ufo"));
     }
 
     public Iterable<Ufo> getAll() {
@@ -42,7 +41,5 @@ public class UfoService {
 
         ufoRepository.save(existingUfo);
     }
-
-
 }
 
