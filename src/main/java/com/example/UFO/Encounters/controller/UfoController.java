@@ -1,15 +1,10 @@
 package com.example.UFO.Encounters.controller;
 
 import com.example.UFO.Encounters.model.entities.Ufo;
-import com.example.UFO.Encounters.model.entities.User;
 import com.example.UFO.Encounters.service.UfoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import com.example.UFO.Encounters.repository.UfoRepository;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/ufo")
@@ -45,8 +40,8 @@ public class UfoController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateUfo(@PathVariable Long id, @RequestBody Ufo updatedUfo) {
-        ufoService.updateUfo(id, updatedUfo);
+    public Ufo updateUfo(@PathVariable Long id, @RequestBody Ufo updatedUfo) {
+        return ufoService.updateUfo(id, updatedUfo);
 
     }
 

@@ -28,7 +28,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public void updateUser(Long id, User updatedUser) {
+    public User updateUser(Long id, User updatedUser) {
         User existingUser = get(id);
 
         existingUser.setAccountName(updatedUser.getAccountName());
@@ -37,6 +37,6 @@ public class UserService {
         existingUser.setAge(updatedUser.getAge());
         existingUser.setWitness(updatedUser.getWitness());
 
-        userRepository.save(existingUser);
+        return userRepository.save(existingUser);
     }
 }

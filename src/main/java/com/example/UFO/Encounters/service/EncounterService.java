@@ -28,7 +28,7 @@ public class EncounterService {
         return encounterRepository.findAll();
     }
 
-    public void updateEncounter(Long id, EncounterDescription updatedEncounter) {
+    public EncounterDescription updateEncounter(Long id, EncounterDescription updatedEncounter) {
         EncounterDescription existingEncounter = get(id);
 
         existingEncounter.setCountryLocation(updatedEncounter.getCountryLocation());
@@ -42,7 +42,7 @@ public class EncounterService {
         existingEncounter.setStatus(updatedEncounter.getStatus());
         existingEncounter.setAirForce(updatedEncounter.getAirForce());
 
-        encounterRepository.save(existingEncounter);
+        return encounterRepository.save(existingEncounter);
 
 
     }

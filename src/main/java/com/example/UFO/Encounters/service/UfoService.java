@@ -29,7 +29,7 @@ public class UfoService {
         return ufoRepository.findAll();
     }
 
-    public void updateUfo(Long id, Ufo updatedUfo) {
+    public Ufo updateUfo(Long id, Ufo updatedUfo) {
         Ufo existingUfo = get(id);
 
         existingUfo.setCharacteristics(updatedUfo.getCharacteristics());
@@ -39,7 +39,7 @@ public class UfoService {
         existingUfo.setSize(updatedUfo.getSize());
         existingUfo.setDriveType(updatedUfo.getDriveType());
 
-        ufoRepository.save(existingUfo);
+        return ufoRepository.save(existingUfo);
     }
 }
 

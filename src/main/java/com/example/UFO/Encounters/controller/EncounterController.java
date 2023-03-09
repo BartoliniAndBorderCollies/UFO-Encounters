@@ -1,13 +1,10 @@
 package com.example.UFO.Encounters.controller;
 
 import com.example.UFO.Encounters.model.entities.EncounterDescription;
-import com.example.UFO.Encounters.repository.EncounterRepository;
 import com.example.UFO.Encounters.service.EncounterService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RequestMapping("/encounter")
 @RestController
@@ -42,8 +39,8 @@ public class EncounterController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateEncounterDescription(@PathVariable Long id, @RequestBody EncounterDescription updatedEncounter) {
-        encounterService.updateEncounter(id, updatedEncounter);
+    public EncounterDescription updateEncounterDescription(@PathVariable Long id, @RequestBody EncounterDescription updatedEncounter) {
+        return encounterService.updateEncounter(id, updatedEncounter);
 
     }
 
